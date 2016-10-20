@@ -5,15 +5,16 @@
   <script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile.min.js"></script>
 </head>
 <body>
-  <div data-role="page">  // page
-    <div data-role="header">  // header
-      <h1>header</h1>
-    </div>
-    <div class="ui-content">  // ui-content
-      <a href="dialog-noclosebtn.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="pop">No close button</a>
-    </div>
-    <div data-role="footer">  // footer
-      <h4>footer</h4>
-    </div>
+<div data-role="page" data-close-btn="none" data-dialog="true">
+		<div data-role="header">
+		<h1>Dialog</h1>
+		</div>
+
+		<div role="main" class="ui-content">
+		<h1>No close button</h1>
+		<p>This is a regular page, styled as a dialog. To create a dialog, just link to a normal page and include a transition and <code>data-rel="dialog"</code> attribute.</p>
+			<a href="docs-dialogs.html" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Ok, I get it</a>
+		</div>
+	</div>
   </div>
 </body>
