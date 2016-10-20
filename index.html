@@ -4,12 +4,15 @@
       NO: <input type="text" id="ipEvent"><br><br>
       Name: <input type="text" id="ipTime"><br><br>
       Score: <input type="text" id="ipNote"><br><br><br>
-      <input type="button" value="送出" onclick ="SendScore()">
+      <input id="btnEvent_1" type="button" value="睡覺" onclick ="SendScore()">
+      <input type="button" value="喝奶" onclick ="SendScore()">
+      <input type="button" value="尿布" onclick ="SendScore()">
+      <input type="button" value="大便" onclick ="SendScore()">
       <script type="text/javascript">
          function SendScore(){
             
          $.get("https://script.google.com/macros/s/AKfycbxvFqwqOZHhC5wGigxzW3xjhbe5zYw5mVh4hW-5t3C1TmDpLlQ/exec", {
-         "Event": document.getElementById("ipEvent").value,
+         "Event": document.getElementById("btnEvent_1").value,
          "Time": getDateTime(),
          "Note": "20",
          "Update":getDateTime()
@@ -22,9 +25,7 @@
          }
          
          function getDateTime() {
-         
          var date = new Date();
-         
          var hour = date.getHours();
          hour = (hour < 10 ? "0" : "") + hour;
          
@@ -35,7 +36,6 @@
          sec = (sec < 10 ? "0" : "") + sec;
          
          var year = date.getFullYear();
-         
          var month = date.getMonth() + 1;
          month = (month < 10 ? "0" : "") + month;
          
