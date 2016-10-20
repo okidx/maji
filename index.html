@@ -1,51 +1,52 @@
 <html>
-   <body>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      NO: <input type="text" id="ipEvent"><br><br>
-      Name: <input type="text" id="ipTime"><br><br>
-      Score: <input type="text" id="ipNote"><br><br><br>
-      <input id="btnEvent_1" type="button" value="睡覺" onclick ="SendScore()">
-      <input id="btnEvent_2" type="button" value="喝奶" onclick ="SendScore()">
-      <input id="btnEvent_3" type="button" value="尿布" onclick ="SendScore()">
-      <input id="btnEvent_4" type="button" value="大便" onclick ="SendScore()">
-      
-      <script type="text/javascript">
-         function SendScore(){
-            
-         $.get("https://script.google.com/macros/s/AKfycbxvFqwqOZHhC5wGigxzW3xjhbe5zYw5mVh4hW-5t3C1TmDpLlQ/exec", {
-         "Event": document.getElementById("btnEvent_1").value,
-         "Time": getDateTime(),
-         "Note": "20",
-         "Update":getDateTime()
-                    },
-                     function (data) {
-                         document.write("--------------------------");
-                         document.write("Result = "+data);
-                         document.write("--------------------------");
-                     });
-         }
-         
-         function getDateTime() {
-         var date = new Date();
-         var hour = date.getHours();
-         hour = (hour < 10 ? "0" : "") + hour;
-         
-         var min  = date.getMinutes();
-         min = (min < 10 ? "0" : "") + min;
-         
-         var sec  = date.getSeconds();
-         sec = (sec < 10 ? "0" : "") + sec;
-         
-         var year = date.getFullYear();
-         var month = date.getMonth() + 1;
-         month = (month < 10 ? "0" : "") + month;
-         
-         var day  = date.getDate();
-         day = (day < 10 ? "0" : "") + day;
-         
-         return year + "/" + month + "/" + day + "_" + hour + ":" + min + ":" + sec;
-         
-         }
-      </script>
-   </body>
+<body>
+
+<script src="http://www.google.com/jsapi"></script>
+<script>
+  google.load("jquery", "1.4");
+  google.load("jqueryui", "1.7");
+</script>
+
+<link rel="stylesheet" href="http://jquery-ui.googlecode.com/svn/tags/latest/themes/base/jquery-ui.css" type="text/css" media="all" />
+
+
+
+<div id="dialog" title="" style="display:none;">
+</div>
+
+<a hrer="javascript:" onclick="btn();">資料</a>
+
+<script>
+function btn() {
+
+
+    var data='<b>你好</b><br>測試';
+   
+    $('#dialog').html( data );
+
+
+    $('#dialog').css({display:'inline'});
+
+    $("#dialog").dialog({
+        title: '資料',
+        bgiframe: true,
+        width: 350,
+        height: 350,
+        modal: true,
+        draggable: true,
+        resizable: true,
+        overlay:{opacity: 0.7, background: "#FF8899" },
+
+        buttons: {
+            '關閉': function() {
+                $(this).dialog('close');
+            }
+        }
+    });
+
+
+}
+</script>
+
+</body>
 </html>
