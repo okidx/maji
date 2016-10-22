@@ -20,8 +20,15 @@
         <input type="button" value="副食品">
         <input type="button" value="尿尿">
         <input type="button" value="大便">
-        <a href="foo.html" data-rel="dialog">Open dialog</a>
+<div id="dialog">
+    <p>Please enter your name</p>
+    <textarea id="name"></textarea>
+</div>
 
+<label>Name entered: </label>
+<label id="nameentered"></label>
+<br />
+<input type="button" id="open" value="Open Dialog" />
 Open dialog
 
       </article>
@@ -29,5 +36,25 @@ Open dialog
         <h3>頁尾</h3>
       </footer>
     </section>
+    <script type="text/javascript">
+$("#dialog").dialog({
+    autoOpen: false,
+    buttons: { 
+        Ok: function() {
+            $("#nameentered").text($("#name").val());
+            $(this).dialog("close");
+       },
+        Cancel: function () {
+            $(this).dialog("close");
+        }
+    }
+});
+
+$("#open").click(function () {
+    $("#dialog").dialog("open");
+});
+
+</script>
+
   </body>
 </html>
