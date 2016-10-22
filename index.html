@@ -8,6 +8,8 @@
     <link type="text/css" rel="stylesheet" href="https://code.jquery.com/mobile/latest/jquery.mobile.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="myjs.js"></script>
+
   </head>
   <body>
     <section data-role="page">
@@ -36,25 +38,5 @@ Open dialog
         <h3>頁尾</h3>
       </footer>
     </section>
-    <script type="text/javascript">
-$("#dialog").dialog({
-    autoOpen: false,
-    buttons: { 
-        Ok: function() {
-            $("#nameentered").text($("#name").val());
-            $(this).dialog("close");
-       },
-        Cancel: function () {
-            $(this).dialog("close");
-        }
-    }
-});
-
-$("#open").click(function () {
-    $("#dialog").dialog("open");
-});
-
-</script>
-
   </body>
 </html>
