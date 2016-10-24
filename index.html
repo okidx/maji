@@ -8,13 +8,34 @@
     <link type="text/css" rel="stylesheet" href="https://code.jquery.com/mobile/latest/jquery.mobile.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+    
+    <script type="text/javascript">
+
+    $("#dialog").dialog({
+        autoOpen: false,
+        buttons: { 
+            Ok: function() {
+                $("#nameentered").text($("#name").val());
+                $(this).dialog("close");
+           },
+            Cancel: function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $("#open").click(function () {
+        $("#dialog").dialog("open");
+    });
+
+    </script>
 
   </head>
   <body>
     <section data-role="page">
       <header data-role="header">
 
-        <h1>麻糬的吃玩睡記錄行動版</h1>
+        <h1>麻糬記錄行動版</h1>
       </header>
       <article data-role="content">
         <input type="button" value="喝奶(副食品)">
@@ -23,6 +44,16 @@
         <input type="button" value="大便">
         <input type="button" value="剪指甲">
       </article>
+      
+      <div id="dialog">
+      <p>Please enter your name</p>
+      <textarea id="name"></textarea>
+      </div>
+
+<label>Name entered: </label>
+<label id="nameentered"></label>
+<br />
+<input type="button" id="open" value="Open Dialog" />
       <footer data-role="footer">
         <h3>Copyright © 2016 oki</h3>
       </footer>
