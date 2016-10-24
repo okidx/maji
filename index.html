@@ -20,6 +20,8 @@
       //畫面喝奶UI的確認功能鍵
       function SendScore(){
       alert($("#ipEvent").val()+";"+
+       $('input[name=radio-choice-0]:checked').val()+";"+
+
        $("#ddlType option:selected").text()
 
        );
@@ -32,26 +34,21 @@
       
       }      
          
+         //取得現在時間
          function getDateTime() {
          var date = new Date();
          var hour = date.getHours();
          hour = (hour < 10 ? "0" : "") + hour;
-         
          var min  = date.getMinutes();
          min = (min < 10 ? "0" : "") + min;
-         
          var sec  = date.getSeconds();
          sec = (sec < 10 ? "0" : "") + sec;
-         
          var year = date.getFullYear();
          var month = date.getMonth() + 1;
          month = (month < 10 ? "0" : "") + month;
-         
          var day  = date.getDate();
          day = (day < 10 ? "0" : "") + day;
-         
          return year + "/" + month + "/" + day + "_" + hour + ":" + min + ":" + sec;
-         
          }
       </script>
    </head>
@@ -67,10 +64,11 @@
          </span>
          </a>
          <div class="ui-popup-container pop in ui-popup-active" id="popupDialog-popup" tabindex="0" style="max-width: 1267px; top: 186.512px; left: 469.5px;">
-            <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all ui-popup ui-body-c ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+            <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="c" style="max-width:500px;" class="ui-corner-all ui-popup ui-body-c ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
                <div data-role="header" data-theme="a" class="ui-corner-top ui-header ui-bar-a" role="banner">
                   <h1 class="ui-title" role="heading" aria-level="1">Delete Page?</h1>
                </div>
+
                <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content ui-body-d" role="main">
                   <h3 class="ui-title">請輸入記錄</h3>
                   <input type="text" id="ipEvent" placeholder="請輸入時間"><br>
@@ -81,17 +79,20 @@
 
 
                         <fieldset class="ui-field-contain">
-                           <select name="day" id="ddlType">
+                           <select name="ddlType" id="ddlType">
                               <option value="mon">喝奶</option>
                               <option value="tue">副食品</option>
                            </select>
                         </fieldset>
+
                         <input type="submit" data-inline="true" value="Submit">
-               <label>
-                   <input type="radio" name="radio-choice-0" id="radio-choice-0a">喝奶
-               </label>
+
+
+
+
+               <label><input type="radio" name="radio-choice-0" id="radio-choice-0a" value="喝奶" checked="true">喝奶</label>
                <label for="radio-choice-0b">副食品</label>
-               <input type="radio" name="radio-choice-0" id="radio-choice-0b" class="custom">
+               <input type="radio" name="radio-choice-0" id="radio-choice-0b" class="custom" value="副食品">
                </div>
             </div>
          </div>
