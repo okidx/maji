@@ -56,6 +56,12 @@
          </header>
          <div data-role="main" class="ui-content" style="text-align:center">
             <a id="btnMilk" href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">喝奶</a>
+            <a id="btnSleep" href="#" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">睡覺</a>
+            <a id="btnPee" href="#" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">尿布</a>
+            <a id="btnStoll" href="#" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">大便</a>
+            <a id="btnNail" href="#" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">剪指甲</a>            
+
+
             <div data-role="popup" id="myPopup" class="ui-content" style="max-width:500px;text-align:center;">
                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
                <!-- <p>請確認麻糬時的時間</p> -->
@@ -69,10 +75,11 @@
                   <label for="radio-choice-0b">副食品</label>
                   <input type="radio" name="radio-choice-0" id="radio-choice-0b" class="custom" value="副食品"> -->
                <input type="text" id="txtTimeSys" placeholder="" disabled="true">
-               <input type="text" id="txtTime" placeholder="可自行輸入時間" data-clear-btn="true">
+              
                <input type="datetime-local" data-clear-btn="true" name="datetime-4" id="datetime-4" value="">
                <label>請移動或自行輸入量</label> 
                <input type="range" name="points" id="points" value="00" min="0" max="300">
+               <input type="text" id="txtInfo" placeholder="其他說明" data-clear-btn="true">
                <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-inline ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">取消</span></span></a> 
                <a onclick ="SendScore()" href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-inline"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">確定</span></span></a>  
             </div>
