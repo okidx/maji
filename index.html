@@ -16,13 +16,18 @@
          
          
          //畫面喝奶UI的確認功能鍵
-         function SendScore_Milk(){
-         alert($("#txtTimeSys_Milk").val()+"----"+
-          $("#filChols :radio:checked").val()+"----"+
-         $("#datetime-4").val()+"-----"+$("#points").val()+"------"+$("#txtInfo").val()
-         // $("#ddlType option:selected").text()
+         function SendScore_Milk() {
+         alert("----" + $("#filChols :radio:checked").val() + "----" + $("#datetime-4").val() + "-----" + $("#points").val() + "------" + $("#txtInfo").val());
          
-          );
+         $.get("https://script.google.com/macros/s/AKfycbxvFqwqOZHhC5wGigxzW3xjhbe5zYw5mVh4hW-5t3C1TmDpLlQ/exec", {
+           "Event": $("#filChols :radio:checked").val(),
+           "Time": $("#datetime-4").val(),
+           "Info": $("#points").val(),
+           "Note": $("#txtInfo").val(),
+           "Update": getDateTime()
+         })
+         
+         
          }
          
          //喝奶
