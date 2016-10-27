@@ -9,7 +9,7 @@
          $(document).ready(function(){
          	//點擊畫面[喝奶]功能鍵,將現在時間帶入
              $("#btnMilk").click(function(){
-                 $("#txtTimeSys_Milk").val(getDateTime());
+                 //$("#txtTimeSys_Milk").val(getDateTime());
                  //$("#datetime-4").val(getDateTime());
              });
          });
@@ -70,8 +70,8 @@
                   <label for="food">副食品</label>
                   <input type="radio" name="gender" id="food" value="副食品">
                </fieldset>
-               <input type="text" id="txtTimeSys_Milk" placeholder="" readonly="readonly" >
-               <label>下方為自行輸入時間區域</label> 
+               <!-- <input type="text" id="txtTimeSys_Milk" placeholder="" readonly="readonly" > -->
+               <label>請輸入時間</label> 
                <input type="datetime-local" data-clear-btn="true" name="datetime-4" id="datetime-4" value="">
                <label>請移動或輸入量</label> 
                <input type="range" name="points" id="points" value="00" min="0" max="250">
