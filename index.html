@@ -9,17 +9,17 @@
          $(document).ready(function(){
          	//點擊畫面[喝奶]功能鍵,將現在時間帶入
              $("#btnMilk").click(function(){
-                 $("#txtTimeSys").val(getDateTime());
+                 $("#txtTimeSys_Milk").val(getDateTime());
              });
          });
          
          
          //畫面喝奶UI的確認功能鍵
-         function SendScore(){
-         alert($("#txtTimeSys").val()+";"+
-          $("#filChols :radio:checked").val()+";"+
-         
-          $("#ddlType option:selected").text()
+         function SendScore_Milk(){
+         alert($("#txtTimeSys_Milk").val()+"----"+
+          $("#filChols :radio:checked").val()+"----"+
+         $("#datetime-4").val()+"-----"+$("#points").val()+"------"+$("#txtInfo").val()
+         // $("#ddlType option:selected").text()
          
           );
          }
@@ -55,35 +55,30 @@
             <h1>麻糬記錄行動版</h1>
          </header>
          <div data-role="main" class="ui-content" style="text-align:center">
-            <a id="btnMilk" href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">喝奶</a>
+            <a id="btnMilk" href="#myPopup_Milk" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">喝奶</a>
             <a id="btnSleep" href="#" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">睡覺</a>
             <a id="btnPee" href="#" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">尿布</a>
             <a id="btnStoll" href="#" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">大便</a>
             <a id="btnNail" href="#" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">剪指甲</a>            
-
-
-            <div data-role="popup" id="myPopup" class="ui-content" style="max-width:500px;text-align:center;">
+            <!-- 喝奶//////////////////////////////////////////////////////////////////////////////// -->
+            <div data-role="popup" id="myPopup_Milk" class="ui-content" style="max-width:500px;text-align:center;">
                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-               <!-- <p>請確認麻糬時的時間</p> -->
                <fieldset data-role="controlgroup" data-type="horizontal" id="filChols">
                   <label for="milk">喝奶</label>
                   <input type="radio" name="gender" id="milk" value="喝奶" checked="true">
                   <label for="food">副食品</label>
                   <input type="radio" name="gender" id="food" value="副食品">
                </fieldset>
-               <!-- <label><input type="radio" name="radio-choice-0" id="radio-choice-0a" value="喝奶" checked="true">喝奶</label>
-                  <label for="radio-choice-0b">副食品</label>
-                  <input type="radio" name="radio-choice-0" id="radio-choice-0b" class="custom" value="副食品"> -->
-
-               <input type="text" id="txtTimeSys" placeholder="" readonly="readonly" >
-                 <label>下方為自行輸入時間區域，否則請保持空白。</label> 
-               <input type="datetime-local" data-clear-btn="true" name="datetime-4" id="datetime-4" value="" placeholder="自行輸入時間">
+               <input type="text" id="txtTimeSys_Milk" placeholder="" readonly="readonly" >
+               <label>下方為自行輸入時間區域</label> 
+               <input type="datetime-local" data-clear-btn="true" name="datetime-4" id="datetime-4" value="">
                <label>請移動或輸入量</label> 
-               <input type="range" name="points" id="points" value="00" min="0" max="300">
+               <input type="range" name="points" id="points" value="00" min="0" max="250">
                <input type="text" id="txtInfo" placeholder="其他說明" data-clear-btn="true">
                <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-inline ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">取消</span></span></a> 
-               <a onclick ="SendScore()" href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-inline"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">確定</span></span></a>  
+               <a onclick ="SendScore_Milk()" href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-inline"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">確定</span></span></a>  
             </div>
+            <!-- 睡覺//////////////////////////////////////////////////////////////////////////////// -->
          </div>
          <footer data-role="footer">
             <h3>Copyright © 2016 oki</h3>
