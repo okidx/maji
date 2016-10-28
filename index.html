@@ -9,33 +9,27 @@
          $(document).ready(function(){
          	//點擊畫面[喝奶]功能鍵,將現在時間帶入
              $("#btnMilk").click(function(){
-                 //$("#txtTimeSys_Milk").val(getDateTime());
+             	//alert();
+                 $("#caseDate").val(getDateTime("DATE"));
+                 $("#caseTime").val(getDateTime("TIME"));
                  //$("#datetime-4").val(getDateTime());
              });
 
-            //
-		  	var date = new Date();
-		    var currentMonth = date.getMonth();
-		    var currentDate = date.getDate();
-		    var currentYear = date.getFullYear();
-
-		    $('#caseDate').datepicker({
-		        minDate: new Date(currentYear, currentMonth, currentDate),
-		        dateFormat: 'yy-mm-dd'
-		    });             
+             
          });
          
          
          //畫面喝奶UI的確認功能鍵
          function SendScore_Milk() {
-         alert("----" + $("#filChols :radio:checked").val() + "----" + $("#datetime-4").val() + "-----" + $("#points").val() + "------" + $("#txtInfo").val());
+         alert($("#caseDate").val()+"----"+$("#caseTime").val()+"----" + $("#filChols :radio:checked").val() + "----" + $("#datetime-4").val() + "-----" + $("#points").val() + "------" + $("#txtInfo").val());
          
          $.get("https://script.google.com/macros/s/AKfycbxvFqwqOZHhC5wGigxzW3xjhbe5zYw5mVh4hW-5t3C1TmDpLlQ/exec", {
            "Event": $("#filChols :radio:checked").val(),
-           "Time": $("#datetime-4").val(),
+           "Date": $("#caseDate").val(),
+           "Time": $("#caseTime").val(),
            "Info": $("#points").val(),
            "Note": $("#txtInfo").val(),
-           "Update": getDateTime()
+           "Update": getDateTime("DATETIME")
          })
          
          
@@ -48,8 +42,10 @@
          
          }      
             
-            //取得現在時間
-            function getDateTime() {
+                        //取得現在時間
+            function getDateTime(par) {
+
+            var sReturn;	
             var date = new Date();
             var hour = date.getHours();
             hour = (hour < 10 ? "0" : "") + hour;
@@ -62,7 +58,17 @@
             month = (month < 10 ? "0" : "") + month;
             var day  = date.getDate();
             day = (day < 10 ? "0" : "") + day;
-            return year + "/" + month + "/" + day + " " + hour + ":" + min ;//+ ":" + sec;
+
+            if(par=="DATETIME")
+            {sReturn=year + "-" + month + "-" + day+ " " + hour + ":" + min;}
+            
+            if(par=="DATE")
+            {sReturn=year + "-" + month + "-" + day;}
+
+            if(par=="TIME")
+            {sReturn= hour + ":" + min;}
+
+            return sReturn ;
             }
       </script>
    </head>
@@ -91,10 +97,11 @@
                   <input type="radio" name="gender" id="food" value="副食品">
                </fieldset>
                <!-- <input type="text" id="txtTimeSys_Milk" placeholder="" readonly="readonly" > -->
-               <label>請輸入時間</label>
+               <label>請確認以下日期與時間(點擊可調整)</label>
                <input name="caseDate" id="caseDate" value="" type="date" class="caseDate_h" />
-               <input name="caseDate" id="caseDate" value="" type="time" class="caseDate_h" />
-               <input type="datetime-local" data-clear-btn="true" name="datetime-4" id="datetime-4" value="">
+               <input name="caseTime" id="caseTime" value="" type="time" class="caseDate_h" />
+
+               <!-- <input type="datetime-local" data-clear-btn="true" name="datetime-4" id="datetime-4" value=""> -->
                <label>請移動或輸入量</label> 
                <input type="range" name="points" id="points" value="00" min="0" max="250">
                <input type="text" id="txtInfo" placeholder="其他說明" data-clear-btn="true">
