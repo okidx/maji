@@ -12,6 +12,17 @@
                  //$("#txtTimeSys_Milk").val(getDateTime());
                  //$("#datetime-4").val(getDateTime());
              });
+
+            //
+		  	var date = new Date();
+		    var currentMonth = date.getMonth();
+		    var currentDate = date.getDate();
+		    var currentYear = date.getFullYear();
+
+		    $('#caseDate').datepicker({
+		        minDate: new Date(currentYear, currentMonth, currentDate),
+		        dateFormat: 'yy-mm-dd'
+		    });             
          });
          
          
@@ -60,6 +71,10 @@
          <header data-role="header">
             <h1>麻糬記錄行動版</h1>
          </header>
+
+		
+                            
+
          <div data-role="main" class="ui-content" style="text-align:center">
             <a id="btnMilk" href="#myPopup_Milk" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">喝奶</a>
             <a id="btnSleep" href="#" data-rel="popup" class="ui-btn ui-btn-inline" style="width:80%;">睡覺</a>
@@ -76,7 +91,9 @@
                   <input type="radio" name="gender" id="food" value="副食品">
                </fieldset>
                <!-- <input type="text" id="txtTimeSys_Milk" placeholder="" readonly="readonly" > -->
-               <label>請輸入時間</label> 
+               <label>請輸入時間</label>
+               <input name="caseDate" id="caseDate" value="" type="date" class="caseDate_h" />
+               <input name="caseDate" id="caseDate" value="" type="time" class="caseDate_h" />
                <input type="datetime-local" data-clear-btn="true" name="datetime-4" id="datetime-4" value="">
                <label>請移動或輸入量</label> 
                <input type="range" name="points" id="points" value="00" min="0" max="250">
